@@ -74,8 +74,6 @@ bin/
 obj/
 .idea/
 .vs/
-appsettings.Development.json
-appsettings.json
 
 .name
 indexLayout.xml

@@ -1,0 +1,42 @@
+@model List<string>
+
+
+<div class= "container p-4 border">
+    @if (TempData["Message"] != null)
+    {
+        <div class="alert alert-success">@TempData["Message"]</div>
+    }
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger">@TempData["Error"]</div>
+    }
+    <div class="row">
+        <div class="col-6">
+            <h3> Container Name - @ViewData["ContainerName"]</h3>
+        </div>
+        <div class="col-6 text-right">
+            <a asp-action="AddFile" asp-controller="Blob" 
+               asp-route-containerName="@ViewData["ContainerName"]" class="btn btn-success">Add Blob</a>
+        </div>
+    </div>
+    <div class="container pt-4">
+        @foreach (var item in Model)
+        {
+            <div class="row py-1">
+                <div class="col-6">
+                    <a asp-action="ViewFile" asp-controller="Blob" target="_blank" asp-route-name="@item"
+                       asp-route-containerName="@ViewData["ContainerName"]">
+                        @item
+                    </a>
+
+                </div>
+                <div class="col-6">
+
+                    <a asp-action="DeleteFile" asp-controller="Blob" asp-route-name="@item" class="btn btn-danger"
+                       asp-route-containerName="@ViewData["ContainerName"]">
+                        Delete
+                    </a>
+                </div>
+            </div>}
+    </div>
+</div>
