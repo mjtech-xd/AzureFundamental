@@ -7,6 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddSingleton(u => new BlobServiceClient(builder.Configuration.GetConnectionString("BlobConnection")));
 builder.Services.AddSingleton<IContainerService, ContainerService>();
+builder.Services.AddSingleton<IBlobService, BlobService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
