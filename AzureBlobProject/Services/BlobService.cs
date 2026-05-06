@@ -1,5 +1,6 @@
 using Azure.Storage.Blobs;
 using AzureBlobProject.Models;
+using Azure;
 
 namespace AzureBlobProject.Services;
 
@@ -7,6 +8,7 @@ public class BlobService(BlobServiceClient blobClient) : IBlobService
 {
     public async Task<List<string>> GetAllBlobs(string containerName)
     {
+        containerName = containerName.ToLowerInvariant();
         BlobContainerClient blobContainerClient = blobClient.GetBlobContainerClient(containerName);
         var blobs = blobContainerClient.GetBlobsAsync();
         List<string> blobNames = new();
@@ -26,6 +28,7 @@ public class BlobService(BlobServiceClient blobClient) : IBlobService
 
     public async Task<string> GetBlob(string name, string containerName)
     {
+        containerName = containerName.ToLowerInvariant();
         BlobContainerClient blobContainerClient = blobClient.GetBlobContainerClient(containerName);
         var blobs = blobContainerClient.GetBlobClient(name);
         if (blobs != null)
@@ -38,6 +41,7 @@ public class BlobService(BlobServiceClient blobClient) : IBlobService
 
     public async Task<bool> CreateBlob(string name, string containerName, IFormFile file, BlobModel blobModel)
     {
+        containerName = containerName.ToLowerInvariant();
         BlobContainerClient blobContainerClient = blobClient.GetBlobContainerClient(containerName);
         var blobs = blobContainerClient.GetBlobClient(name);
         var httpHeaders = new Azure.Storage.Blobs.Models.BlobHttpHeaders
@@ -52,9 +56,17 @@ public class BlobService(BlobServiceClient blobClient) : IBlobService
 
     public async Task<bool> DeleteBlob(string name, string containerName)
     {
+        containerName = containerName.ToLowerInvariant();
         BlobContainerClient blobContainerClient = blobClient.GetBlobContainerClient(containerName);
         var blobs = blobContainerClient.GetBlobClient(name);
-        return await blobs.DeleteIfExistsAsync();
-
+        try
+        {
+            return await blobs.DeleteIfExistsAsync();
+        }
+        catch (RequestFailedException ex) when (ex.ErrorCode == "InvalidResourceName")
+        {
+            // Blob name contains invalid characters, cannot delete
+            return false;
+        }
     }
 }
