@@ -77,6 +77,9 @@ obj/
 appsettings.Development.json
 appsettings.json
 
+.name
+indexLayout.xml
+vcs.xml
 
 # ASP.NET Scaffolding
 ScaffoldingReadMe.txt
