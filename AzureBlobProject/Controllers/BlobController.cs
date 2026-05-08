@@ -53,7 +53,7 @@ public class BlobController(IBlobService blobService) : Controller
     {
         containerName = containerName.ToLowerInvariant();
         name = Uri.UnescapeDataString(name);
-        var result = await blobService.DeleteBlob(containerName, name);
+        var result = await blobService.DeleteBlob(name, containerName);
         if (result)
         {
             TempData["Message"] = "File deleted successfully.";
