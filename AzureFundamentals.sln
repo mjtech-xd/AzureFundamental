@@ -2,6 +2,14 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureBlobProject", "AzureBlobProject\AzureBlobProject.csproj", "{3F3FC826-FFF5-4784-9DB3-6BCADA208567}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureBlobExample", "AzureBlobExample", "{F0C8E9C5-CE94-4DF7-B3A0-8D728612E285}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AzureFunctionExample", "AzureFunctionExample", "{C3212F6F-3F05-462D-B686-8A82E84B062E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureFunctionTangyWeb", "AzureFunctionTangyWeb\AzureFunctionTangyWeb.csproj", "{DAD91D87-0FFF-4E97-93D0-EF57196665D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TangyAzureFunc", "TangyAzureFunc\TangyAzureFunc.csproj", "{1CF9E573-A18C-4143-B9FF-B05304CC161D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +20,18 @@ Global
 		{3F3FC826-FFF5-4784-9DB3-6BCADA208567}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F3FC826-FFF5-4784-9DB3-6BCADA208567}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F3FC826-FFF5-4784-9DB3-6BCADA208567}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DAD91D87-0FFF-4E97-93D0-EF57196665D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DAD91D87-0FFF-4E97-93D0-EF57196665D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DAD91D87-0FFF-4E97-93D0-EF57196665D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DAD91D87-0FFF-4E97-93D0-EF57196665D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1CF9E573-A18C-4143-B9FF-B05304CC161D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1CF9E573-A18C-4143-B9FF-B05304CC161D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1CF9E573-A18C-4143-B9FF-B05304CC161D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1CF9E573-A18C-4143-B9FF-B05304CC161D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{3F3FC826-FFF5-4784-9DB3-6BCADA208567} = {F0C8E9C5-CE94-4DF7-B3A0-8D728612E285}
+		{DAD91D87-0FFF-4E97-93D0-EF57196665D1} = {C3212F6F-3F05-462D-B686-8A82E84B062E}
+		{1CF9E573-A18C-4143-B9FF-B05304CC161D} = {C3212F6F-3F05-462D-B686-8A82E84B062E}
 	EndGlobalSection
 EndGlobal
