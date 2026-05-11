@@ -8,7 +8,7 @@ using TangyAzureFunc.Data;
 var builder = FunctionsApplication.CreateBuilder(args);
 
 builder.ConfigureFunctionsWebApplication();
-string? connectionString = Environment.GetEnvironmentVariable("AzureWebJobsStorage");
+string? connectionString = Environment.GetEnvironmentVariable("AzureSqlConnection");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseNpgsql(connectionString));
 
